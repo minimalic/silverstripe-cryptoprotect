@@ -1,7 +1,8 @@
 # Silverstripe CryptoProtect
 
 Proof of Work Captcha Field as extension for Silverstripe's [SpamProtection Module](https://github.com/silverstripe/silverstripe-spamprotection).
-The "Proof of Work" mechanism uses multiple SHA256 calculation to utilize computation capability of clients device for reducing Spam-Bots form requests.
+
+The "Proof of Work" mechanism uses multiple SHA256 calculation to utilize computation capability of client's device for reducing Spam-Bots form requests.
 
 
 ## Requirements
@@ -28,19 +29,20 @@ Refresh DB (shell website root):
 Or use base URL with:
 `/dev/build?flush=all`
 
+Inside CMS use the "cryptoprotect" area and generate new hashes.
 
-## Configuration: YAML
+
+## Configuration
 
 You can tune the hashing behavior inside your project's config (spamprotection.yml). Currently avvailable options (default):
 ```yaml
 minimalic\CryptoProtect\Models\CryptographicChallenge:
   difficulty_cycles: 100000
 ```
+Flush caches with `?flush=all` and regenerate hashes inside CMS after config changes.
 
 
-## Configuration: CMS
-
-Inside CMS use the "cryptoprotect" area and generate new Hashes.
+More on configuring and using Spam Protection Field inside [SpamProtection Module](https://github.com/silverstripe/silverstripe-spamprotection) repository.
 
 
 ## License
