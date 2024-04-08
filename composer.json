@@ -1,10 +1,13 @@
 {
     "name": "minimalic/silverstripe-cryptoprotect",
-    "description": "Anti-spam module using simple SHA256 proof of work for Silverstripe CMS 5",
+    "description": "Proof of Work Captcha Field for Silverstripe CMS 5",
     "type": "silverstripe-vendormodule",
     "keywords": [
         "silverstripe",
         "spamprotection",
+        "captcha",
+        "sha256",
+        "antispam",
         "cryptoprotect"
     ],
     "authors": [
