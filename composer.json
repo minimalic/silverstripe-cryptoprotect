@@ -1,0 +1,31 @@
+{
+    "name": "minimalic/silverstripe-cryptoprotect",
+    "description": "Anti-spam module using simple SHA256 proof of work for Silverstripe CMS 5",
+    "type": "silverstripe-vendormodule",
+    "keywords": [
+        "silverstripe",
+        "spamprotection",
+        "cryptoprotect"
+    ],
+    "authors": [
+        {
+            "name": "Sebastian Finke", "email": "dev@minimalic.com"
+        }
+    ],
+    "require": {
+        "silverstripe/spamprotection": "^3 || ^4"
+    },
+    "autoload": {
+        "psr-4": {
+            "minimalic\\CryptoProtect\\": "src/"
+        }
+    },
+    "extra": {
+        "expose": [
+            "client/dist"
+        ]
+    },
+    "license": "BSD-3-Clause",
+    "minimum-stability": "dev",
+    "prefer-stable": true
+}
