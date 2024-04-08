@@ -10,7 +10,6 @@ de:
     ValidationError: "Die Antwort ist falsch. Das Captcha wird erneut gelöst.\n Wenn das Captcha nicht passieren kann, versuche es mit einem anderen Browser oder einem anderen Gerät."
   minimalic\CryptoProtect\Forms\GridFieldGenerateHashesButton:
     ButtonTitle: 'Neue Hashes generieren'
-
   minimalic\CryptoProtect\Admins\CryptographicChallengeAdmin:
     MENUTITLE: 'Kryptografische Herausforderungen'
     AdminAccess: 'Du hast keinen Zugriff auf diese Aktion'
