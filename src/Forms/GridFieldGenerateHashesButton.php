@@ -13,6 +13,7 @@ use minimalic\CryptoProtect\Admins\CryptographicChallengeAdmin;
 
 class GridFieldGenerateHashesButton implements GridFieldComponent, GridField_HTMLProvider, GridField_ActionProvider {
 
+    // generates button for CMS view
     public function getHTMLFragments($gridField) {
         $adminLink = singleton(CryptographicChallengeAdmin::class)->Link();
         $challengeClass = str_replace('\\', '-', CryptographicChallenge::class);
@@ -33,10 +34,12 @@ class GridFieldGenerateHashesButton implements GridFieldComponent, GridField_HTM
         ];
     }
 
+    // action name, needed for `GridField_ActionProvider`
     public function getActions($gridField) {
         return ['generateHashes'];
     }
 
+    // needed for `GridField_ActionProvider`
     public function handleAction(GridField $gridField, $actionName, $arguments, $data) {
         if ($actionName == 'generateHashes') {
 

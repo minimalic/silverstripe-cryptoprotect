@@ -1,5 +1,3 @@
 ---
 name: cryptoprotect
 ---
-minimalic\CryptoProtect\Models\CryptographicChallenge:
-  difficulty_cycles: 100000

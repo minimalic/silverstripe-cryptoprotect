@@ -14,6 +14,7 @@ class CryptographicChallengeField extends FormField {
 
     private static $enabled = true;
 
+    // provides protector field used by CryptographicChallengeProtector class
     public function Field($properties = []) {
         if ($this->config()->get('enabled')) {
             $challenge = CryptographicChallenge::get()->shuffle()->first();
@@ -25,16 +26,14 @@ class CryptographicChallengeField extends FormField {
                 // Pass the challenge data to the template
                 $this->setAttribute('data-challenge-id', $challenge->ID);
                 $this->setAttribute('data-challenge-question', $challenge->Question);
-
                 $cycles = CryptographicChallenge::config()->get('difficulty_cycles');
                 $this->setAttribute('data-challenge-difficulty', $cycles);
-
                 $textSolving = _t(__CLASS__ . '.CaptchaSolving', "Solving captcha...");
                 $this->setAttribute('data-challenge-text-solving', $textSolving);
-
                 $textSolved = _t(__CLASS__ . '.CaptchaSolved', "Captcha solved");
                 $this->setAttribute('data-challenge-text-solved', $textSolved);
 
+                // fallback text for disabled JS
                 $textRightTitle = _t(
                     __CLASS__ . '.RightTitle',
                     "It seems like you've disabled JavaScript in your browser or something else gone wrong.
@@ -46,6 +45,7 @@ class CryptographicChallengeField extends FormField {
                 );
                 $this->setRightTitle($textRightTitle);
 
+                // add JS for frontend proof-of-work calculation
                 Requirements::javascript('minimalic/silverstripe-cryptoprotect: client/dist/js/cryptographicchallenge.js');
 
                 return parent::Field($properties);
@@ -53,13 +53,9 @@ class CryptographicChallengeField extends FormField {
         }
     }
 
+    // check success of provided frontend calculation
     public function isCorrectAnswer($answer, $challengeid) {
         $challenge = CryptographicChallenge::get()->byID($challengeid);
-
-//         // Temporary debug output
-//         echo 'Expected Hash: ' . $challengeid . ' ' . $challenge->AnswerHash . '<br>';
-//         echo 'Submitted Answer: ' . $answer . '<br>';
-//         exit;
 
         if ($challenge && $challenge->AnswerHash == $answer) {
             return true;
@@ -68,8 +64,8 @@ class CryptographicChallengeField extends FormField {
         return false;
     }
 
+    // main validation
     public function validate($validator) {
-
         $request = Controller::curr()->getRequest();
         $value = $request->postVar($this->getName());
 
