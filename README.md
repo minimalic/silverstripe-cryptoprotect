@@ -2,7 +2,7 @@
 
 Proof of Work Captcha Form Field extension for Silverstripe's [SpamProtection Module](https://github.com/silverstripe/silverstripe-spamprotection).
 
-The "Proof of Work" mechanism leverages SHA256 hashing to maximize the computational power of the client's device, significantly deterring Spam-Bots from flooding your forms.
+The "Proof of Work" mechanism leverages SHA256 hashing to use the computational power of the client's device, significantly deterring Spam-Bots from flooding your forms.
 
 
 ## Requirements
@@ -18,24 +18,27 @@ Install using Composer:
 composer require minimalic/silverstripe-cryptoprotect
 ```
 
-Then, set CryptoProtect as the default captcha in your project's config (`spamprotection.yml`):
+
+## Configuration
+
+Set CryptoProtect as the default captcha in your project's config (e.g. `spamprotection.yml`):
 ```yaml
 SilverStripe\SpamProtection\Extension\FormSpamProtectionExtension:
   default_spam_protector: minimalic\CryptoProtect\Forms\CryptographicChallengeProtector
 ```
 
-Refresh your database by navigating to your website's root directory in the shell and running:
+Refresh your database by navigating to your website's root directory in the shell and running:<br>
 `vendor/bin/sake dev/build "flush=all"`
 
-Or use your base URL with:
+Or use your base URL with:<br>
 `/dev/build?flush=all`
 
-In the CMS, navigate to the "cryptographic-challenges" area and generate new hashes.
+In the CMS, navigate to the "admin/cryptographic-challenges" area and generate new hashes.
 
 
-## Configuration
+## Customization
 
-Fine-tune the hashing mechanism in your project's config (`spamprotection.yml`). The currently available options with default values:
+Fine-tune the hashing mechanism in your project's config (e.g. `spamprotection.yml`). The currently available options with default values:
 ```yaml
 minimalic\CryptoProtect\Models\CryptographicChallenge:
   difficulty_cycles: 100000
