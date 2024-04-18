@@ -4,6 +4,8 @@ Proof of Work Captcha Form Field extension for Silverstripe's [SpamProtection Mo
 
 The "Proof of Work" mechanism leverages SHA256 hashing to use the computational power of the client's device, significantly deterring Spam-Bots from flooding your forms.
 
+Working demo on [iloveunix.com/contact-us](https://iloveunix.com/contact-us).
+
 
 ## Requirements
 
