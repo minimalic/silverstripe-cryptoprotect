@@ -17,6 +17,8 @@ class CryptographicChallengeAdmin extends ModelAdmin {
         CryptographicChallenge::class,
     ];
 
+    private static $menu_icon_class = 'font-icon-shield';
+
     private static $url_segment = 'cryptographic-challenges';
 
     private static $menu_title = 'Cryptographic Challenges';
