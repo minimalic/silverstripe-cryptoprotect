@@ -25,8 +25,11 @@ class GridFieldGenerateHashesButton implements GridFieldComponent, GridField_HTM
 
         $buttonTitle = _t(__CLASS__ . '.ButtonTitle', 'Generate New Hashes');
         $button = sprintf(
-            '<a class="btn btn-primary action_generateHashes" href="%s">' . $buttonTitle . '</a>',
-            $link
+            '<a href="%s" class="action action-detail btn btn-primary font-icon-sync">
+                <span class="btn__title">%s</span>
+            </a>',
+            $link,
+            $buttonTitle
         );
 
         return [
