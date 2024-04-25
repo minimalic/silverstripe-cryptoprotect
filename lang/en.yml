@@ -1,20 +1,21 @@
 en:
+  minimalic\CryptoProtect\Admins\CryptographicChallengeAdmin:
+    AdminAccess: 'You do not have access to this action'
+    MENUTITLE: 'Cryptographic Challenges'
   minimalic\CryptoProtect\Forms\CryptographicChallengeField:
-    RightTitle: "It seems like you've disabled JavaScript in your browser or something else gone wrong.\n
-      In this case you only can submit the form by solving captcha using terminal and some code:\n\n
-      1. get SHA-256 from following text: {question}\n
-      2. get the created SHA-256 and make a new one from the previous one while repeating this step for a total number of 200,000 times.\n
-      3. paste the last SHA-256 into the captcha field above."
-    CaptchaSolving: 'Solving captcha...'
     CaptchaSolved: 'Captcha solved'
+    CaptchaSolving: 'Solving captcha...'
+    RightTitle: "It seems like you've disabled JavaScript in your browser or something else gone wrong.\n In this case you only can submit the form by solving captcha using terminal and some code:\n\n 1. get SHA-256 from following text: {question}\n 2. get the created SHA-256 and make a new one from the previous one while repeating this step for a total number of 200,000 times.\n 3. paste the last SHA-256 into the captcha field above."
     ValidationError: "The provided answer is incorrect. Captcha will be solved again.\n If you cannot pass the captcha try different browser or different device."
   minimalic\CryptoProtect\Forms\GridFieldGenerateHashesButton:
     ButtonTitle: 'Generate New Hashes'
-  minimalic\CryptoProtect\Admins\CryptographicChallengeAdmin:
-    MENUTITLE: 'Cryptographic Challenges'
-    AdminAccess: 'You do not have access to this action'
   minimalic\CryptoProtect\Models\CryptographicChallenge:
-    SINGULARNAME: 'Cryptographic Challenge'
-    PLURALNAME: 'Cryptographic Challenges'
-    Question: 'Question'
     AnswerHash: 'Answer Hash'
+    PLURALNAME: 'Cryptographic Challenges'
+    PLURALS:
+      one: 'A Cryptographic Challenge'
+      other: '{count} Cryptographic Challenges'
+    Question: Question
+    SINGULARNAME: 'Cryptographic Challenge'
+    db_AnswerHash: 'Answer hash'
+    db_Question: Question

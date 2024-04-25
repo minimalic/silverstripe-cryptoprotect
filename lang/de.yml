@@ -1,20 +1,25 @@
 de:
+  minimalic\CryptoProtect\Admins\CryptographicChallengeAdmin:
+    AdminAccess: 'You do not have access to this action'
+    MENUTITLE: 'Cryptographic Challenges'
   minimalic\CryptoProtect\Forms\CryptographicChallengeField:
+    CaptchaSolved: 'Captcha gelöst'
+    CaptchaSolving: 'Löse Captcha...'
     RightTitle: "Es scheint, dass JavaScript in deinem Browser deaktiviert ist oder etwas anderes ist schief gelaufen ist.\n
       In diesem Fall kannst du das Formular nur durch Lösen des Captchas über das Terminal und etwas Code hier einreichen:\n\n
       1. Hole dir den SHA-256 aus dem folgenden Text: {question}\n
       2. Nehme den erstellten SHA-256 und erstelle einen Neuen aus dem Vorherigen, indem du diesen Schritt insgesamt 200.000 Mal wiederholst.\n
       3. Füge den letzten SHA-256 in das Captcha-Feld oben ein."
-    CaptchaSolving: 'Löse Captcha...'
-    CaptchaSolved: 'Captcha gelöst'
     ValidationError: "Die Antwort ist falsch. Das Captcha wird erneut gelöst.\n Wenn das Captcha nicht passieren kann, versuche es mit einem anderen Browser oder einem anderen Gerät."
   minimalic\CryptoProtect\Forms\GridFieldGenerateHashesButton:
     ButtonTitle: 'Neue Hashes generieren'
-  minimalic\CryptoProtect\Admins\CryptographicChallengeAdmin:
-    MENUTITLE: 'Kryptografische Herausforderungen'
-    AdminAccess: 'Du hast keinen Zugriff auf diese Aktion'
   minimalic\CryptoProtect\Models\CryptographicChallenge:
-    SINGULARNAME: 'Kryptografische Herausforderung'
-    PLURALNAME: 'Kryptografische Herausforderungen'
-    Question: 'Frage'
     AnswerHash: 'Antwort-Hash'
+    PLURALNAME: 'Kryptografische Herausforderungen'
+    PLURALS:
+      one: 'Kryptografische Herausforderung'
+      other: '{count} Kryptografische Herausforderungen'
+    Question: 'Frage'
+    SINGULARNAME: 'Kryptografische Herausforderung'
+    db_AnswerHash: 'Antwort-Hash'
+    db_Question: 'Frage'
