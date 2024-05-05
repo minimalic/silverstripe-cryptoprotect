@@ -3,9 +3,7 @@
 namespace minimalic\CryptoProtect\Forms;
 
 use SilverStripe\Control\Controller;
-
 use SilverStripe\View\Requirements;
-
 use SilverStripe\Forms\FormField;
 
 use minimalic\CryptoProtect\Models\CryptographicChallenge;
@@ -20,14 +18,31 @@ class CryptographicChallengeField extends FormField {
             $challenge = CryptographicChallenge::get()->shuffle()->first();
 
             if ($challenge) {
+                $properties['Required'] = true;
+
                 // Store challenge ID in session
                 Controller::curr()->getRequest()->getSession()->set('CryptographicChallengeID', $challenge->ID);
 
                 // Pass the challenge data to the template
                 $this->setAttribute('data-challenge-id', $challenge->ID);
                 $this->setAttribute('data-challenge-question', $challenge->Question);
+
                 $cycles = CryptographicChallenge::config()->get('difficulty_cycles');
                 $this->setAttribute('data-challenge-difficulty', $cycles);
+
+                $dataHideInputBy = CryptographicChallenge::config()->get('hide_input_by');
+                $this->setAttribute('data-challenge-hide-input-by', $dataHideInputBy);
+
+                $dataShowCalculationStatus = CryptographicChallenge::config()->get('show_calculation_status');
+                $this->setAttribute('data-challenge-show-calculation-status', $dataShowCalculationStatus ? 'yes' : 'no');
+
+                $dataShowProgressBar = CryptographicChallenge::config()->get('show_progress_bar');
+                $this->setAttribute('data-challenge-show-progress-bar', $dataShowProgressBar ? 'yes' : 'no');
+
+                if (CryptographicChallenge::config()->get('hide_after_solving')) {
+                    $this->setAttribute('data-challenge-hide-after-solving', 'true');
+                }
+
                 $textSolving = _t(__CLASS__ . '.CaptchaSolving', "Solving captcha...");
                 $this->setAttribute('data-challenge-text-solving', $textSolving);
                 $textSolved = _t(__CLASS__ . '.CaptchaSolved', "Captcha solved");
