@@ -72,7 +72,8 @@ A higher `hashes_count` requires more time for hash regeneration (server-side).
  * `style` use a "display: none" inline style
  * `none` show the input field
 
- The hash input field is always shown in browsers with disabled JS to be able to resolve the challenge by hand.
+> [!NOTE]
+> The hash input field is always shown in browsers with disabled JS as fallback to be able to resolve the challenge by hand.
 
 `show_calculation_status` - Display a loading spinner/complete checkmark and status text
 
