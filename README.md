@@ -23,7 +23,7 @@ composer require minimalic/silverstripe-cryptoprotect
 
 ## Configuration
 
-### Set default protector
+### 1. Set default protector
 
 Set CryptoProtect as the default captcha in your project's config (e.g. `spamprotection.yml`):
 ```yaml
@@ -31,7 +31,7 @@ SilverStripe\SpamProtection\Extension\FormSpamProtectionExtension:
   default_spam_protector: minimalic\CryptoProtect\Forms\CryptographicChallengeProtector
 ```
 
-### Rebuild Database
+### 2. Rebuild Database
 
 Refresh your database by navigating to your website's root directory in the shell and running:<br>
 `vendor/bin/sake dev/build "flush=all"`
@@ -39,11 +39,11 @@ Refresh your database by navigating to your website's root directory in the shel
 Or use your base URL with:<br>
 `/dev/build?flush=all`
 
-### Generate hashes
+### 3. Generate hashes
 
 In the CMS, navigate to the "admin/cryptographic-challenges" area and generate new hashes.
 
-### Add field
+### 4. Add field
 
 Add new "Spam Protection Field" to your Form.
 
